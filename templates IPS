@@ -24,7 +24,8 @@ ssh logging
 ntp logging
 ######################################################################
 Template SNMP IPS:
-snmp-server enable trap
+snmp-server enable traps
+snmp-server community pod12hp RO
 snmp-server host 172.16.52.12 traps pod12hp 
 
 validation :
