@@ -16,6 +16,21 @@ username dorian password n5N29hVc
 line vty 0 15
 transport input ssh
 login local
+ssh logging
+######################################################################
+Template Logs IPS:
+logging 172.16.52.12 (syslog)
+ssh logging
+ntp logging
+######################################################################
+Template SNMP IPS:
+snmp-server enable trap
+snmp-server host 172.16.52.12 
+traps pod12hp 
+
+validation :
+shutdown une interface
+checker dans les logs
 ######################################################################
 VRRP Template IPS:
 interface Gig0/0
@@ -52,6 +67,7 @@ Template DHCP Relay:
 Template NTP sur l'IPS
 ntp server iprouteur
 clock timezone UCT +2
+ntp logging
 
 validation
 show clock detail
@@ -65,20 +81,6 @@ aaa authentication login default group radius
 radius-server host 172.16.52.12 key WinRadius
 ######################################################################
 Template Tracks IPS:
-######################################################################
-Template Logs IPS:
-logging 172.16.52.12 (syslog)
-ssh logging
-ntp logging
-######################################################################
-Template SNMP IPS:
-snmp-server enable trap
-snmp-server host 172.16.52.12 
-traps pod12hp 
-
-validation :
-shutdown une interface
-checker dans les logs
 ######################################################################
 (Template ACL IPS:)
 ######################################################################
