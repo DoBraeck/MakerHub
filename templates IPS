@@ -8,6 +8,7 @@ line console 0
 password "mdpconsole"
 login
 service password encryption
+test
 ######################################################################
 Template SSH IPS:
 ip domain-name isp12.g1.tetris.org
