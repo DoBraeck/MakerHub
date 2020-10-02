@@ -16,7 +16,7 @@ username dorian password n5N29hVc
 line vty 0 15
 transport input ssh
 login local
-ssh logging
+ip ssh logging event
 ######################################################################
 Template Logs IPS:
 logging 172.16.52.12 (syslog)
