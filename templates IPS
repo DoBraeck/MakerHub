@@ -63,6 +63,8 @@ interface Gig0/0.4
  vrrp 4 priority 160
 ######################################################################
 Template DHCP Relay:
+int gig0/0.1
+ip helper-address 172.16.41.2
 ######################################################################
 Template NTP sur l'IPS
 ntp server iprouteur
