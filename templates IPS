@@ -64,7 +64,7 @@ interface Gig0/0.4
 ######################################################################
 Template DHCP Relay:
 int gig0/0.1
-ip helper-address 172.16.41.2
+ip helper-address ip du core (sur int entre ips et core)
 ######################################################################
 Template NTP sur l'IPS
 ntp server iprouteur
