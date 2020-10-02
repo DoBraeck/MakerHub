@@ -1,6 +1,6 @@
 Template Basics IPS:
 Banner motd "Unauthorized access to this device is prohibited!"
-hostname ISP12
+hostname IPS12
 description (if gig0/0) "to MLS"
 description (if gig0/1) "to COR"
 
