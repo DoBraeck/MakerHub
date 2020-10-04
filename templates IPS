@@ -2,7 +2,12 @@ Template Basics IPS:
 Banner motd "Unauthorized access to this device is prohibited!"
 hostname IPS12
 description (if gig0/0) "to MLS"
+! int gig 0/0
+! description to MLS
+
 description (if gig0/1) "to COR"
+! int gig 0/1
+! description to COR
 
 line console 0
 password "mdpconsole"
@@ -10,6 +15,7 @@ login
 service password encryption
 ######################################################################
 Template SSH IPS:
+
 ip domain-name ips12.g1.tetris.org
 crypto key generate rsa (modulus 2048+)
 username dorian password n5N29hVc
@@ -19,6 +25,7 @@ login local
 ip ssh logging event
 ######################################################################
 Template Logs IPS:
+
 logging 172.16.52.12 (syslog)
 ssh logging
 ntp logging
@@ -61,6 +68,32 @@ interface Gig0/0.4
  ip address 172.16.43.3 255.255.255.0
  vrrp 4 ip 172.16.43.10
  vrrp 4 priority 160
+######################################################################
+! CORE
+! int gig 0/0
+! ip address 172.16.46.2 255.255.255.0
+
+! int gig 0/0.1
+! shutdown 
+
+! int gig 0/0.2
+! shutdown 
+
+! int gig 0/0.3
+! shutdown 
+
+! int gig 0/0.4
+! shutdown 
+
+show ip int brief
+######################################################################
+! Test ping
+! Branchement de la gig 0/1 (MLS) => gig 0/0 (IPS)
+! ping 172.16.43.1
+! ping 172.15.53.1
+######################################################################
+! Ajout route sur SSH : 
+! route -p add 172.16.46.0 mask 255.255.255.0 172.16.(CHECK) if 11
 ######################################################################
 Template DHCP Relay:
 int gig0/0.1
