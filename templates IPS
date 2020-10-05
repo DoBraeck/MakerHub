@@ -69,8 +69,8 @@ interface Gig0/0.4
  vrrp 4 ip 172.16.43.10
  vrrp 4 priority 160
  
- IPS Gig0/1 (vers COR)
- ip address 1721.6.46.2 255.255.255.0
+ !IPS Gig0/1 (vers COR)
+ !ip address 1721.6.46.2 255.255.255.0
  
 ######################################################################
 ! CORE
