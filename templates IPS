@@ -99,6 +99,27 @@ show ip int brief
 ! Ajout route sur SSH : 
 ! route -p add 172.16.46.0 mask 255.255.255.0 172.16.(CHECK) if 11
 ######################################################################
+PAT OU ROUTE
+
+PAT
+int gig 0/0.1 ip nat inside
+int gig 0/0.2 ip nat inside
+int gig 0/0.3 ip nat inside
+int gig 0/0.4 ip nat inside 
+int gig 0/1 ip nat outside
+access-list 1 permit 172.16.44.0 0.0.0.255
+access-list 1 permit 172.16.45.0 0.0.0.255
+access-list 1 permit 172.16.46.0 0.0.0.255
+access-list 1 permit 172.16.40.0 0.0.0.255
+access-list 1 permit 172.16.41.0 0.0.0.255
+access-list 1 permit 172.16.42.0 0.0.0.255
+access-list 1 permit 172.16.43.0 0.0.0.255
+access-list 1 permit 172.16.51.0 0.0.0.255
+access-list 1 permit 172.16.52.0 0.0.0.255
+access-list 1 permit 172.16.53.0 0.0.0.255
+ip nat inside source list 1 interface gig 0/1 overload
+
+######################################################################
 Template DHCP Relay:
 int gig0/0.1
 ip helper-address ip du core (sur int entre ips et core)
