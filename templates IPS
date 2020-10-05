@@ -68,10 +68,14 @@ interface Gig0/0.4
  ip address 172.16.43.3 255.255.255.0
  vrrp 4 ip 172.16.43.10
  vrrp 4 priority 160
+ 
+ IPS Gig0/1 (vers COR)
+ ip address 1721.6.46.2 255.255.255.0
+ 
 ######################################################################
 ! CORE
 ! int gig 0/0
-! ip address 172.16.46.2 255.255.255.0
+!! ip address 172.16.46.3 255.255.255.0
 
 ! int gig 0/0.1
 ! shutdown 
